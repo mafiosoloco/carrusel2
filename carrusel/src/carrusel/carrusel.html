@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.css" rel='stylesheet'>
+    <link href="/dist/prism-okaidia.css" rel='stylesheet'>
+    <link href="/dist/ui-carousel.css" rel='stylesheet'>
+    <link href="style.scss" rel='stylesheet'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/regular.css" integrity="sha384-IG162Tfx2WTn//TRUi9ahZHsz47lNKzYOp0b6Vv8qltVlPkub2yj9TVwzNck6GEF" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/brands.css" integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">    <style type="text/css">
+        .slick-slider {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .slick-dotted.slick-slider {
+            margin-bottom: 30px;
+            border: groove;
+        
+        }
+        /****************************************************/
+        .carousel-item {
+            margin: 10px 30px 10px 30px;
+        }
+        .carousel-prev:hover, .carousel-prev:focus, .carousel-next:hover, .carousel-next:focus {
+            color: transparent;
+            outline: none;
+            background: transparent;
+        }
+    
+        .carousel-prev {
+            left: 5px;
+        }
+        .carousel-next {
+            right: 18px;
+        }
+        .carousel-prev, .carousel-next {
+            font-size: x-large;
+            line-height: 0;
+            position: absolute;
+            top: 50%;
+            display: block;
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            -webkit-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            cursor: pointer;
+            /*color: transparent;*/
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+    
+            .carousel-prev:hover:before, .carousel-prev:focus:before, .carousel-next:hover:before, .carousel-next:focus:before {
+                opacity: 1;
+            }
+    
+            /*.carousel-prev:before {
+                content: "\f1f8";
+            }*/
+    
+            .carousel-prev:before, .carousel-next:before {
+                font-size: xx-large;
+                line-height: 1;
+                opacity: .75;
+                color: aliceblue;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            /*.carousel-next:before {
+                content: '→';
+            }*/
+    
+            .carousel-prev:before, .carousel-next:before {
+                /*font-family: 'slick';*/
+                font-size: 20px;
+                line-height: 1;
+                opacity: .75;
+                color: #e81010;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        /* Dots */
+        .carousel-dots.slick-slider {
+            margin-bottom: 30px;
+        }
+    
+        .carousel-dots {
+            position: absolute;
+            bottom: -25px;
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+        }
+    
+        .carousel-dots li {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            padding: 0;
+            cursor: pointer;
+        }
+    
+            .carousel-dots li button {
+                font-size: 0;
+                line-height: 0;
+                display: block;
+                width: 20px;
+                height: 20px;
+                padding: 5px;
+                cursor: pointer;
+                color: transparent;
+                border: 0;
+                outline: none;
+                background: transparent;
+            }
+    
+                .carousel-dots li button:hover,
+                .carousel-dots li button:focus {
+                    outline: none;
+                }
+    
+                    .carousel-dots li button:hover:before,
+                    .carousel-dots li button:focus:before {
+                        opacity: 1;
+                    }
+    
+                .carousel-dots li button:before {
+                    /*font-family: 'slick';*/
+                    font-size: 66px;
+                    line-height: 20px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 20px;
+                    height: 20px;
+                    content: '•';
+                    text-align: center;
+                    opacity: .25;
+                    color: #3498db;
+    
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+    
+            .carousel-dots li.slick-active button:before {
+                opacity: .75;
+                color: black;
+            }
+    
+    </style>
+</head>
+<body ng-controller="CarouselDemoCtrl as ctrl">
+    
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="form-group">
+            <button ng-click="ctrl.agregarImgaen()" class="form-control btn-primary btn-sm">Agregar Imagen</button>
+
+                <h3><pre>EJEMPLO 1</pre></h3>
+                <ui-carousel  slides="ctrl.slides" slides-to-show="3" slides-to-scroll="1"
+                    initial-slide="1" autoplay="true" autoplay-speed="2000"  dots="true">
+
+                    <carousel-item>
+                    <h3>{{ item + 1 }}</h3>
+                    </carousel-item>
+                </ui-carousel>
+                
+                <h3><pre>EJEMPLO 2</pre></h3>
+                <ui-carousel  slides="ctrl.imagenes" slides-to-show="3" slides-to-scroll="1"
+                    initial-slide="1" autoplay="true" autoplay-speed="2000"  dots="true">
+
+                    <carousel-item>
+                            <img src="{{item.ValUrlAvatar}}">
+                            <a id="{{item.ValUrlAvatar}}" style="cursor:pointer; color:#3498db;font-size:larger;"
+                             class="button" ng-click="ctrl.eliminarImagen()"><i class="fa fa-trash"></i></a>
+                             <button ng-click="ctrl.eliminarImagen()">Eliminar </button>
+                    </carousel-item>
+                </ui-carousel>
+                <h3><pre>EJEMPLO 3</pre></h3>
+
+
+                    <ui-carousel  slides="ctrl.imagenes"  slides-to-show="3"   slides-to-scroll="1"  >
+
+                            <!-- For slider render -->
+                            <carousel-item>
+                                <!-- placed your item content here -->
+                                <img src="{{item.ValUrlAvatar}}">
+                                <h5> {{ item.ValUrlAvatar }} </h5>
+                                <!-- <p> {{ item.description }} </p>  -->
+                                <a id="{{item.ValUrlAvatar}}" style="cursor:pointer; color:#3498db;font-size:larger;" 
+                                class="button" ng-click="ctrl.eliminarImagen()"><i class="fa fa-trash"></i></a>
+                                <button ng-click="ctrl.eliminarImagen()">Eliminar </button>
+                            </carousel-item>
+
+
+                            <!-- For customize carousel next, previous button -->
+                            <carousel-prev>
+                                <!-- placed your previous button here -->
+                                <button>Prev</button>
+                                <!-- end -->
+                            </carousel-prev>
+
+                            <carousel-next>
+                                <!-- placed your next button here -->
+                                <button>Next</button>
+                                <!-- end -->
+                            </carousel-next>
+
+                    </ui-carousel>
+<button ng-click="ctrl.eliminarImagen()">Eliminar </button>
+                    <pre>{{ctrl.imagenes}}</pre>
+<!-- 
+<ui-carousel 
+  slides="ctrl.slides"
+  slides-to-show="3"
+  slides-to-scroll="1"
+  on-init="ctrl.onCarouselInit()"
+  on-before-change="ctrl.onCarouselBeforeChange()"
+  on-after-change="ctrl.onCarouselAfterChange()">
+
+  <carousel-item>
+    <h3>{{ item + 1 }}</h3>
+  </carousel-item>
+</ui-carousel> -->
+        </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"> </script>
+    <script src="/dist/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/dist/prism.js"></script>
+    <script src="/dist/ui-carousel.js"></script>
+    <script src="/src/carrusel/appc.js"></script>
+</body>
+</html>
